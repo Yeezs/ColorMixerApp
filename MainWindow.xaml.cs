@@ -20,8 +20,9 @@ namespace ColorMixerApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static SolidColorBrush Fill { get; private set; }
-
+        byte redColorValue;
+        byte greenColorValue;
+        byte blueColorValue;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,8 +32,9 @@ namespace ColorMixerApp
         {
             try
             {
-                byte redColorValue = Convert.ToByte(RedValue.Text);
+                redColorValue = Convert.ToByte(RedValue.Text);
                 RedRectangle.Fill = new SolidColorBrush(Color.FromRgb(redColorValue, 0, 0));
+                MixedRectangle.Background = new SolidColorBrush(Color.FromRgb(redColorValue, greenColorValue, blueColorValue));
             }
             catch
             {
@@ -45,8 +47,9 @@ namespace ColorMixerApp
         {
             try
             {
-                byte greenColorValue = Convert.ToByte(GreenValue.Text);
+                greenColorValue = Convert.ToByte(GreenValue.Text);
                 GreenRectangle.Fill = new SolidColorBrush(Color.FromRgb(0, greenColorValue, 0));
+                MixedRectangle.Background = new SolidColorBrush(Color.FromRgb(redColorValue, greenColorValue, blueColorValue));
             }
             catch
             {
@@ -58,21 +61,8 @@ namespace ColorMixerApp
         {
             try
             {
-                byte blueColorValue = Convert.ToByte(BlueValue.Text);
+                blueColorValue = Convert.ToByte(BlueValue.Text);
                 BlueRectangle.Fill = new SolidColorBrush(Color.FromRgb(0, 0, blueColorValue));
-            }
-            catch
-            {
-
-            }
-        }
-        private void changeBackground()
-        {
-            try
-            {
-                byte redColorValue = Convert.ToByte(RedValue.Text);
-                byte greenColorValue = Convert.ToByte(GreenValue.Text);
-                byte blueColorValue = Convert.ToByte(BlueValue.Text);
                 MixedRectangle.Background = new SolidColorBrush(Color.FromRgb(redColorValue, greenColorValue, blueColorValue));
             }
             catch
@@ -80,6 +70,7 @@ namespace ColorMixerApp
 
             }
         }
+ 
 
 
     }
