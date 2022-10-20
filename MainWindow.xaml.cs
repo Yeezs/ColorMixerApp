@@ -70,8 +70,20 @@ namespace ColorMixerApp
 
             }
         }
- 
 
+        private void RedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            RedValue.Text = Math.Round(RedSlider.Value, 0).ToString();
+        }
 
+        private void GreenSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            GreenValue.Text = Math.Round(GreenSlider.Value, 0).ToString();
+        }
+
+        private void BlueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            BlueValue.Text = Math.Round(BlueSlider.Value, 0).ToString();
+        }
     }
 }
